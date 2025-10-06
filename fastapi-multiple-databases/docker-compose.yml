@@ -1,0 +1,54 @@
+
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: multi-db-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db1
+      - db2
+    environment:
+      # PostgreSQL
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db1
+      POSTGRES_HOST: db1
+      POSTGRES_PORT: 5432
+
+      # MySQL
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: db2
+      MYSQL_HOST: db2
+      MYSQL_PORT: 3306
+
+  db1:
+    image: postgres:15
+    container_name: postgres-db1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db1
+    ports:
+      - "5432:5432"
+    volumes:
+      - db1_data:/var/lib/postgresql/data
+
+  db2:
+    image: mysql:8
+    container_name: mysql-db2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db2
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db2_data:/var/lib/mysql
+
+volumes:
+  db1_data:
+  db2_data:

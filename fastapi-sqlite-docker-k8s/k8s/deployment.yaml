@@ -1,0 +1,32 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-sqlite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-sqlite
+  template:
+    metadata:
+      labels:
+        app: fastapi-sqlite
+    spec:
+      containers:
+        - name: fastapi
+          image: vamsikpdevops/fastapi-sqlite:latest   # <-- replace this (see step-by-step)
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: "sqlite:////data/app.db"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: sqlite-pvc

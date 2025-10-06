@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-scaled-app
+spec:
+  replicas: 3  # default day replicas
+  selector:
+    matchLabels:
+      app: time-scaled-app
+  template:
+    metadata:
+      labels:
+        app: time-scaled-app
+    spec:
+      containers:
+      - name: time-scaled-app
+        image: vamsikpdevops/time-scaled-app:0.1
+        ports:
+        - containerPort: 8000
