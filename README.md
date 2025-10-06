@@ -6,22 +6,27 @@ Each folder contains a separate mini-project with its own configuration and setu
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ### 1. `fastapi-multiple-database`
-> An example FastAPI app using multiple databases (like SQLite + PostgreSQL) with separate configurations and routers.
+>  **Tools & Technologies**: FastAPI, SQLAlchemy, SQLite, PostgreSQL  
+> An example FastAPI app using multiple databases with separate configurations and routers.
 
 ### 2. `fastapi-postgres-docker-compose`
-> A FastAPI app connected to a PostgreSQL database using Docker Compose for orchestration.
+>  **Tools & Technologies**: FastAPI, PostgreSQL, Docker, Docker Compose  
+> A FastAPI app connected to PostgreSQL using Docker Compose.
 
 ### 3. `fastapi-sqlite-docker-k8s`
-> A lightweight FastAPI app using SQLite, Dockerized and ready to be deployed on Kubernetes.
+>  **Tools & Technologies**: FastAPI, SQLite, Docker, Kubernetes  
+> A lightweight FastAPI app using SQLite, Dockerized and ready for Kubernetes deployment.
 
 ### 4. `k8s-dynamic-scalling-app`
-> A Kubernetes deployment with Horizontal Pod Autoscaler (HPA) enabled. Includes metrics server setup and scaling configs.
+>  **Tools & Technologies**: FastAPI, Kubernetes, HPA, Metrics Server  
+> A Kubernetes app with Horizontal Pod Autoscaling (HPA) enabled and configured.
 
 ### 5. `two-python-apps-k8s`
-> Deploys two separate Python FastAPI apps on Kubernetes with Ingress and services setup for internal/external communication.
+>  **Tools & Technologies**: FastAPI, Kubernetes, Ingress, Services  
+> Deploys two FastAPI apps on Kubernetes with internal and external routing.
 
 ---
 
